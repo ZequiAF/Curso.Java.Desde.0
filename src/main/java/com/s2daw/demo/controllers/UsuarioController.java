@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -12,47 +13,41 @@ public class UsuarioController {
 
     @RequestMapping(value="usuario/{id}")
     public Usuario getUsuario(@PathVariable Long id){
-        Usuario usuario = new Usuario();
+        Usuario usuario=new Usuario();
         usuario.setId(id);
         usuario.setNombre("Ezequiel");
         usuario.setApellido("Arean");
         usuario.setEmail("ezequielmatias.af@gmail.com");
         usuario.setTelefono("722126018");
-        usuario.setPassword("ArgentinaCampeona");
-
         return usuario;
     }
-    @RequestMapping(value="usuario848")
-    public Usuario editar(){
-        Usuario usuario = new Usuario();
+    @RequestMapping(value="usuarios")
+    public List<Usuario> getUsuarios(){
+        List<Usuario> usuarios=new ArrayList<>();
+        Usuario usuario=new Usuario();
+        usuario.setId(123L);
         usuario.setNombre("Ezequiel");
-        usuario.setApellido("Arean");
-        usuario.setEmail("ezequielmatias.af@gmail.com");
+        usuario.setApellido("Matías");
+        usuario.setEmail("ezequielmatias.af@@gmail.com");
         usuario.setTelefono("722126018");
-        usuario.setPassword("ArgentinaCampeona");
+        usuarios.add(usuario);
 
-        return usuario;
-    }
-    @RequestMapping(value="usuario7554")
-    public Usuario eliminar(){
-        Usuario usuario = new Usuario();
-        usuario.setNombre("Ezequiel");
+        usuario=new Usuario();
+        usuario.setId(268L);
+        usuario.setNombre("Oscar");
         usuario.setApellido("Arean");
-        usuario.setEmail("ezequielmatias.af@gmail.com");
-        usuario.setTelefono("722126018");
-        usuario.setPassword("ArgentinaCampeona");
+        usuario.setEmail("oscar.a@gmail.com");
+        usuario.setTelefono("45965238");
+        usuarios.add(usuario);
 
-        return usuario;
-    }
-    @RequestMapping(value="usuario7848")
-    public Usuario buscar(){
-        Usuario usuario = new Usuario();
-        usuario.setNombre("Ezequiel");
-        usuario.setApellido("Arean");
-        usuario.setEmail("ezequielmatias.af@gmail.com");
-        usuario.setTelefono("722126018");
-        usuario.setPassword("ArgentinaCampeona");
+        usuario=new Usuario();
+        usuario.setId(3L);
+        usuario.setNombre("Sebast");
+        usuario.setApellido("Fernández");
+        usuario.setEmail("sebast.f@gmail.com");
+        usuario.setTelefono("456921238");
+        usuarios.add(usuario);
 
-        return usuario;
+        return usuarios;
     }
 }

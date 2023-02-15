@@ -15,12 +15,12 @@ async function cargaUsuarios(){
   const usuarios = await request.json();
   let listadoHTML='';
   for (let usuario of usuarios){
-    let botonEliminar = '<a href="#" onclick="eliminarUsuario('+usuario.id+')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
-
+    let telefonoTexto=usuario.telefono == null ? '-':usuario.telefono
+    let botonEliminar ='<a href="#" onclick="eliminarUsuario('+usuario.id+')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>'
     let usuarioHTML= '<tr><td>'+usuario.id+
                      '<td>'+usuario.nombre+
                      '</td><td>'+usuario.email+
-                     '</td><td>'+usuario.telefono+
+                     '</td><td>'+telefonoTexto+
                      '</td><td>'+botonEliminar+'</td><tr>';
     listadoHTML+=usuarioHTML;
   }
@@ -33,7 +33,7 @@ async function eliminarUsuario(id){
     if (!confirm('¿Desea borrar el usuario?')){
         return;
     }
-    alert(' El usuario será eliminado '+id);
+    alert(' voy a eliminar el usuario '+id);
     const request = await fetch('api/eliminar/'+id, {
         method: 'DELETE',
         headers: {

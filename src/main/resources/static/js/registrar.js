@@ -3,7 +3,7 @@ $(document).ready(function() {
   // Lo dejo vacío
 });
 
-async function registraUsuario(){
+async function registrarUsuarios(){
   let datos={};
   datos.nombre=document.getElementById('txtNombre').value;
   datos.apellidos=document.getElementById('txtApellidos').value;
@@ -15,7 +15,7 @@ async function registraUsuario(){
     alert(' las dos contraseñas no coinciden');
     return;
   }
-  const request = await fetch('api/usuarios', {
+  const response = await fetch('api/usuarios', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -23,5 +23,7 @@ async function registraUsuario(){
     },
     body:JSON.stringify(datos)
   });
+  alert(' Usuario registrado');
+  window.location.href = ' login.html'
 }
 

@@ -1,22 +1,20 @@
 package com.s2daw.demo.dao;
 
 
-import com.s2daw.demo.utils.JWTUtil;
+import com.s2daw.demo.models.Usuario;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import com.s2daw.demo.models.Usuario;
-import org.springframework.web.bind.annotation.RequestHeader;
 
 @Repository
 @Transactional
+
+
 public class UsuarioDaoImp implements UsuarioDao{
 
     @PersistenceContext
@@ -48,6 +46,8 @@ public class UsuarioDaoImp implements UsuarioDao{
     public void registraUsuario(Usuario usuario) {
         entityManager.merge(usuario);
     }
+
+
 
     @Override
     public Usuario obtenerUsuarioPorCredenciales(Usuario usuario) {

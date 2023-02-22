@@ -20,7 +20,7 @@ async function iniciarSesion(){
    // Mejor solución sería recibir un 401 (fallo autenticación)
     // y actuar en consecuencia
     const respuesta = await response.json();
-    if (respuesta.success == 'OK') {
+    if (respuesta.success == 'FALSE') {
       localStorage.token=respuesta.token;
       localStorage.email=datos.email;
       window.location.href='usuarios.html';
